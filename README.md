@@ -1,17 +1,9 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/subsquid/squid-evm-template)
 
-# Minimal EVM squid
+# PEPE-MIGRATION
 
-This is a starter template of a squid indexer for EVM networks (Ethereum, Polygon, BSC, etc.). See [Squid SDK docs](https://docs.subsquid.io/) for a complete reference.
+The implemantation [pepe subgraph](https://github.com/balakhonoff/awesome-subgraphs/tree/main/pepe-subgraph) with [Squid SDK docs](https://docs.subsquid.io/) for a complete reference.
 
-To extract EVM logs and transactions by a topic or a contract address, use [`.addLog()`](https://docs.subsquid.io/evm-indexing/configuration/evm-logs/), [`.addTransaction()`](https://docs.subsquid.io/evm-indexing/configuration/transactions/), [`.addTrace()`](https://docs.subsquid.io/evm-indexing/configuration/traces/) or [`.addStateDiff()`](https://docs.subsquid.io/evm-indexing/configuration/state-diffs/) methods of the `EvmBatchProcessor` instance defined in `src/processor.ts`. Select data fields with [`.setFields()`](https://docs.subsquid.io/evm-indexing/configuration/data-selection/).
-
-The requested data is transformed in batches by a single handler provided to the `processor.run()` method. 
-
-For a full list of supported networks and config options,
-check the [`EvmBatchProcessor` overview](https://docs.subsquid.io/evm-indexing/evm-processor/) and the [setup section](https://docs.subsquid.io/evm-indexing/configuration/).
-
-For a step-by-step migration guide from TheGraph, see [the dedicated docs page](https://docs.subsquid.io/migrate/migrate-subgraph/).
 
 Dependencies: Node.js v16 or newer, Git, Docker.
 
@@ -21,20 +13,24 @@ Dependencies: Node.js v16 or newer, Git, Docker.
 # 0. Install @subsquid/cli a.k.a. the sqd command globally
 npm i -g @subsquid/cli
 
-# 1. Retrieve the template
-sqd init my_squid_name -t evm
-cd my_squid_name
+# 1. clone repository
+sqd clone https://github.com/nashirudin/pepe-migration
 
-# 2. Install dependencies
+# 2. Go to folder
+cd pepe-migration
+
+# 3. Rename .env.example to .env
+
+# 4. Install dependencies
 npm ci
 
-# 3. Start a Postgres database container and detach
+# 5. Start a Postgres database container and detach
 sqd up
 
-# 4. Build the squid
+# 6. Build the squid
 sqd build
 
-# 5. Start both the squid processor and the GraphQL server
+# 7. Start both the squid processor and the GraphQL server
 sqd run .
 ```
 A GraphiQL playground will be available at [localhost:4350/graphql](http://localhost:4350/graphql).
