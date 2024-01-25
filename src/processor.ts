@@ -40,6 +40,7 @@ export const processor = new EvmBatchProcessor()
       PepeContract.events.OwnershipTransferred.topic,
       PepeContract.events.Transfer.topic,
     ],
+      transaction: true
   })
   export type Fields = EvmBatchProcessorFields<typeof processor>
   export type Context = DataHandlerContext<Store, Fields>
